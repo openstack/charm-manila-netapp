@@ -1,0 +1,7 @@
+.tox
+**/*.swp
+__pycache__
+.stestr
+build
+manila-netapp.charm
+.vscode

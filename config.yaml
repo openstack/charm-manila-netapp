@@ -1,0 +1,40 @@
+options:
+  share-backend-name:
+    type: string
+    default: netapp-ontap
+    description: |
+      The name given to the backend. This is used to generate the backend
+      configuration section. If two different configurations of the same
+      backend type are needed, then this config option can be used to separate
+      them in the backend configuration.
+  driver-handles-share-servers:
+    type: boolean
+    description: |
+      Whether the Manila driver should manage the Vservers within the
+      NetApp ONTAP cluster.
+    default: True
+  root-volume-aggregate-name:
+    type: string
+    description: |
+      Name of aggregate to create Vserver root volumes on. This option only
+      applies when the option 'driver-handles-share-servers' is set to True.
+  vserver-name:
+    type: string
+    description: |
+      The name of the Vserver already configured within the NetApp ONTAP
+      cluster. This option is used only when 'driver-handles-share-servers' is
+      set to False.
+  management-address:
+    type: string
+    description: |
+      The management address (IP or hostname) for the NetApp ONTAP cluster.
+  admin-name:
+    type: string
+    default: admin
+    description: |
+      Administrative user account name used to access the storage system.
+  admin-password:
+    type: string
+    description: |
+      Password for the administrative user account specified in the
+      'admin-name' option.

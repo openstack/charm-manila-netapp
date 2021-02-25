@@ -1,0 +1,30 @@
+name: manila-netapp
+summary: NetApp ONTAP backend configuration for Manila.
+maintainer: OpenStack Charmers <openstack-charmers@lists.ubuntu.com>
+description: |
+  The Manila share file system service provides a set of services for management
+  of shared file systems in a multi-tenant cloud environment. The service
+  resembles OpenStack block-based storage management from the OpenStack Block
+  Storage service project. With the Shared File Systems service, you can create
+  a remote file system, mount the file system on your instances, and then read
+  and write data from your instances to and from your file system.
+
+  This charm configures a Manila backend using the NetApp Clustered Data
+  ONTAP driver.
+tags:
+  - openstack
+  - storage
+  - file-servers
+series:
+  - bionic
+  - focal
+  - groovy
+subordinate: true
+provides:
+  manila-plugin:
+    interface: manila-plugin
+    scope: container
+requires:
+  juju-info:
+    interface: juju-info
+    scope: container

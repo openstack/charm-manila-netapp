@@ -1,0 +1,4 @@
+pause:
+  description: Pause services.
+resume:
+  description: Resume services.
