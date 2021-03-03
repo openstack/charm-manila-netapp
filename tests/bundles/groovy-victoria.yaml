@@ -139,7 +139,14 @@ applications:
   manila-netapp:
     charm: ../../manila-netapp.charm
     options:
+      share-backend-name: netapp-ontap
       driver-handles-share-servers: False
+
+  manila-netapp-dhss:
+    charm: ../../manila-netapp.charm
+    options:
+      share-backend-name: netapp-ontap-dhss
+      driver-handles-share-servers: True
 
 relations:
   - - 'manila:shared-db'
@@ -152,6 +159,8 @@ relations:
     - 'keystone'
   - - 'manila:manila-plugin'
     - 'manila-netapp:manila-plugin'
+  - - 'manila:manila-plugin'
+    - 'manila-netapp-dhss:manila-plugin'
 
   - - 'keystone:shared-db'
     - 'keystone-mysql-router:shared-db'

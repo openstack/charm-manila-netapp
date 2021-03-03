@@ -18,6 +18,18 @@ options:
     description: |
       Name of aggregate to create Vserver root volumes on. This option only
       applies when the option 'driver-handles-share-servers' is set to True.
+  enabled-share-protocols:
+    type: string
+    description: |
+      Comma-separated list of NFS protocol versions that will be enabled on
+      the Vservers from the NetApp ONTAP cluster.
+      The supported versions are:
+        * nfs3
+        * nfs4.0
+        * nfs4.1
+      This option only applies when the option 'driver-handles-share-servers'
+      is set to True.
+    default: nfs3,nfs4.0,nfs4.1
   vserver-name:
     type: string
     description: |
