@@ -20,7 +20,7 @@ class TestManilaNetappCharm(TestCase):
     REQUIRED_CHARM_CONFIG_BY_DEFAULT = {
         'management-address': '10.0.0.1',
         'admin-password': 'my-secret-password',
-        'root-volume-aggregate-name': 'test_cluster_01_VM_DISK_1',
+        'vserver-name': 'svm0',
     }
 
     def setUp(self):
@@ -55,10 +55,7 @@ class TestManilaNetappCharm(TestCase):
                                        _send_backend_config, _install_pkgs):
         _render.return_value = 'test-rendered-manila-backend-config'
         _get_loader.return_value = 'test-loader'
-        charm_config = copy.deepcopy(self.REQUIRED_CHARM_CONFIG_BY_DEFAULT)
-        charm_config['driver-handles-share-servers'] = False
-        charm_config['vserver-name'] = 'test-vserver'
-        self.harness.update_config(charm_config)
+        self.harness.update_config(self.REQUIRED_CHARM_CONFIG_BY_DEFAULT)
         rel_id = self.harness.add_relation('manila-plugin', 'manila')
         self.harness.add_relation_unit(rel_id, 'manila/0')
         self.harness.begin_with_initial_hooks()
@@ -89,7 +86,10 @@ class TestManilaNetappCharm(TestCase):
                                       _send_backend_config, _install_pkgs):
         _render.return_value = 'test-rendered-manila-backend-config'
         _get_loader.return_value = 'test-loader'
-        self.harness.update_config(self.REQUIRED_CHARM_CONFIG_BY_DEFAULT)
+        config = copy.deepcopy(self.REQUIRED_CHARM_CONFIG_BY_DEFAULT)
+        config['driver-handles-share-servers'] = True
+        config['root-volume-aggregate-name'] = 'test_cluster_01_VM_DISK_1'
+        self.harness.update_config(config)
         self.harness.begin_with_initial_hooks()
 
         # Validate workflow with incomplete relation data

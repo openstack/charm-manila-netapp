@@ -12,7 +12,7 @@ options:
     description: |
       Whether the Manila driver should manage the Vservers within the
       NetApp ONTAP cluster.
-    default: True
+    default: False
   root-volume-aggregate-name:
     type: string
     description: |
