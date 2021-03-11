@@ -38,6 +38,22 @@ spawned into NetApp Data ONTAP cluster. The only limitation to this mode is
 that the Neutron network bound to the share network, needs to be `flat` or
 `vlan`, when using the NetApp driver.
 
+With DHSS (driver handles share servers) enabled, the `CIFS` share servers must
+be configured with an external Active Directory (AD) for authentication. The AD
+config info is provided to the Manila NetApp share servers via an
+`active_directory` [security service][security-services-doc] associated with
+the share network.
+
+Also, the NetApp driver requires credentials from an AD user with enough
+privileges to register the new `CIFS` share servers as computers in the AD
+domain. These credentials are provided as part of the Manila security service
+configuration.
+
+**WARNING**: The credentials for the required AD user are stored in plain text,
+in the Manila database, as part of the associated security service. Tenant
+users are able to see these when fetching information about the
+`active_directory` security service. This is a potential security risk!
+
 When `driver-handles-share-servers` is disabled, an existing NetApp ONTAP
 SVM must be pre-configured, and its name must be given as `vserver-name` in
 the charm config.
@@ -85,5 +101,6 @@ For general charm questions refer to the OpenStack [Charm Guide][cg].
 [cg]: https://docs.openstack.org/charm-guide
 [driver-doc]: https://docs.openstack.org/manila/victoria/configuration/shared-file-systems/drivers/netapp-cluster-mode-driver.html
 [share-networks-doc]: https://docs.openstack.org/manila/victoria/admin/shared-file-systems-share-networks.html
+[security-services-doc]: https://docs.openstack.org/manila/victoria/admin/shared-file-systems-security-services.html
 [lp-bugs-charm-manila-netapp]: https://bugs.launchpad.net/charm-manila-netapp/+filebug
 [operator-git-repo]: https://github.com/canonical/operator
