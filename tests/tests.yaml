@@ -6,6 +6,8 @@ gate_bundles:
 - focal-victoria
 - groovy-victoria
 
+# WARNING(lourot): func-smoke has been temporarily disabled in tox.ini. See
+# rationale there.
 smoke_bundles:
 - bionic-ussuri
 
