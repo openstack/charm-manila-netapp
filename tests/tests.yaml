@@ -1,15 +1,16 @@
 charm_name: manila-netapp
 
 gate_bundles:
-- bionic-ussuri
-- focal-ussuri
-- focal-victoria
-- groovy-victoria
+  - focal-xena
+
+dev_bundles:
+  - focal-yoga
+  - jammy-yoga
 
 # WARNING(lourot): func-smoke has been temporarily disabled in tox.ini. See
 # rationale there.
 smoke_bundles:
-- bionic-ussuri
+- focal-xena
 
 target_deploy_status: {}
 
@@ -29,4 +30,5 @@ tests:
 
 tests_options:
   force_deploy:
-    - groovy-victoria
+    - jammy-yoga
+

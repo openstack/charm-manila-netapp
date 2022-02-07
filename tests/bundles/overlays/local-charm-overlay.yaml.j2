@@ -1,13 +1,13 @@
 applications:
   manila-netapp:
     options:
-      vserver-name: {{ TEST_MANILA_NETAPP_VSERVER_NAME }}
-      management-address: {{ TEST_MANILA_NETAPP_MANAGEMENT_ADDRESS }}
-      admin-name: {{ TEST_MANILA_NETAPP_ADMIN_NAME }}
-      admin-password: {{ TEST_MANILA_NETAPP_ADMIN_PASSWORD }}
+      vserver-name: {{ TEST_NETAPP_SAN_VSERVER }}
+      management-address: {{ TEST_NETAPP_SAN_IP }}
+      admin-name: {{ TEST_NETAPP_SAN_USERNAME }}
+      admin-password: {{ TEST_NETAPP_SAN_PASSWORD }}
   manila-netapp-dhss:
     options:
-      root-volume-aggregate-name: {{ TEST_MANILA_NETAPP_ROOT_VOL_AGGR_NAME }}
-      management-address: {{ TEST_MANILA_NETAPP_MANAGEMENT_ADDRESS }}
-      admin-name: {{ TEST_MANILA_NETAPP_ADMIN_NAME }}
-      admin-password: {{ TEST_MANILA_NETAPP_ADMIN_PASSWORD }}
+      root-volume-aggregate-name: {{ TEST_NETAPP_ROOT_VOL_AGGR_NAME }}
+      management-address: {{ TEST_NETAPP_SAN_IP }}
+      admin-name: {{ TEST_NETAPP_SAN_USERNAME }}
+      admin-password: {{ TEST_NETAPP_SAN_PASSWORD }}

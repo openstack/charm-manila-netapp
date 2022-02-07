@@ -16,11 +16,8 @@ tags:
   - storage
   - file-servers
 series:
-  - bionic
   - focal
-  - groovy
-  - hirsute
-  - impish
+  - jammy
 subordinate: true
 provides:
   manila-plugin:
