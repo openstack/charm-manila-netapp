@@ -5,3 +5,4 @@ __pycache__
 build
 manila-netapp.charm
 .vscode
+*.charm
