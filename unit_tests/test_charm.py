@@ -9,7 +9,7 @@ from unittest import (
     mock,
     TestCase,
 )
-from ops.model import ActiveStatus, BlockedStatus, MaintenanceStatus
+from ops.model import ActiveStatus, BlockedStatus, UnknownStatus
 from ops.testing import Harness
 
 import charm
@@ -98,7 +98,7 @@ class TestManilaNetappCharm(TestCase):
         _get_loader.assert_not_called()
         _send_backend_config.assert_not_called()
         _install_pkgs.assert_called_once_with()
-        self.assertEqual(self.harness.charm.unit.status, MaintenanceStatus(''))
+        self.assertEqual(self.harness.charm.unit.status, UnknownStatus())
 
         # Validate workflow with complete relation data
         rel_id = self.harness.add_relation('manila-plugin', 'manila')
