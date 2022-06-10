@@ -1,14 +1,13 @@
 - project:
     templates:
-      - charm-unit-jobs-py38
       - charm-unit-jobs-py310
       # More work is needed on the functional jobs; they can't pass at the
       # moment as they need to set up hardware which isn't implemented yet.
       # See LP: #1922214
-      # - charm-xena-functional-jobs
-      # - charm-yoga-functional-jobs
+      # - charm-zed-functional-jobs
     vars:
       needs_charm_build: true
       charm_build_name: manila-netapp
       build_type: charmcraft
+      charmcraft_channel: 2.0/stable
 
