@@ -1,7 +1,7 @@
 variables:
   openstack-origin: &openstack-origin cloud:focal-xena
 
-local_overlay_enabled: True
+local_overlay_enabled: False
 
 series: focal
 
@@ -31,22 +31,22 @@ machines:
 applications:
   manila-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   keystone-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   neutron-api-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   nova-cloud-controller-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   glance-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   placement-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
 
   mysql-innodb-cluster:
     charm: ch:mysql-innodb-cluster
@@ -57,7 +57,7 @@ applications:
       - '0'
       - '1'
       - '2'
-    channel: latest/edge
+    channel: 8.0/edge
 
   nova-cloud-controller:
     charm: ch:nova-cloud-controller
@@ -121,7 +121,7 @@ applications:
       source: *openstack-origin
     to:
       - '8'
-    channel: latest/edge
+    channel: 3.9/edge
 
   placement:
     charm: ch:placement
