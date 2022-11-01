@@ -86,6 +86,9 @@ class ManilaNetappCharm(ops_openstack.core.OSBaseCharm):
             'admin-password']
         if self.options.driver_handles_share_servers:
             required_configs.append('root-volume-aggregate-name')
+            if self.options.standalone_network:
+                required_configs.append('standalone-network-gateway')
+                required_configs.append('standalone-network-mask')
         else:
             required_configs.append('vserver-name')
         missing_configs = []
