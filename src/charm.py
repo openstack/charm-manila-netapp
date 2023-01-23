@@ -75,7 +75,7 @@ class ManilaNetappCharm(ops_openstack.core.OSBaseCharm):
             context=self.adapters)
         self.manila_plugin.send_backend_config(
             self.options.share_backend_name, rendered_configs)
-        self.state.is_started = True
+        self._stored.is_started = True
         self.update_status()
 
     def custom_status_check(self):

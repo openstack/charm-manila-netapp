@@ -60,7 +60,7 @@ class TestManilaNetappCharm(TestCase):
         self.harness.add_relation_unit(rel_id, 'manila/0')
         self.harness.begin_with_initial_hooks()
 
-        self.assertTrue(self.harness.charm.state.is_started)
+        self.assertTrue(self.harness.charm._stored.is_started)
         _render.assert_called_once_with(
             source='manila.conf',
             template_loader='test-loader',
@@ -93,7 +93,7 @@ class TestManilaNetappCharm(TestCase):
         self.harness.begin_with_initial_hooks()
 
         # Validate workflow with incomplete relation data
-        self.assertFalse(self.harness.charm.state.is_started)
+        self.assertFalse(self.harness.charm._stored.is_started)
         _render.assert_not_called()
         _get_loader.assert_not_called()
         _send_backend_config.assert_not_called()
@@ -111,7 +111,7 @@ class TestManilaNetappCharm(TestCase):
                     'data': 'test-manila-auth-data'
                 })
             })
-        self.assertTrue(self.harness.charm.state.is_started)
+        self.assertTrue(self.harness.charm._stored.is_started)
         _render.assert_called_once_with(
             source='manila.conf',
             template_loader='test-loader',
