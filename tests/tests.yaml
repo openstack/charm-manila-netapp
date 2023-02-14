@@ -1,17 +1,17 @@
 charm_name: manila-netapp
 
 gate_bundles:
-  - jammy-yoga
+  - jammy-zed
 
 dev_bundles:
-  - jammy-yoga
-  - jammy-zed
+  - jammy-antelope
   - kinetic-zed
+  - lunar-antelope
 
 # WARNING(lourot): func-smoke has been temporarily disabled in tox.ini. See
 # rationale there.
 smoke_bundles:
-  - jammy-yoga
+  - jammy-zed
 
 target_deploy_status: {}
 
@@ -32,4 +32,5 @@ tests:
 tests_options:
   force_deploy:
     - kinetic-zed
+    - lunar-antelope
 
