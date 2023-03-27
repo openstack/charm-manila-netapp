@@ -50,3 +50,84 @@ options:
     description: |
       Password for the administrative user account specified in the
       'admin-name' option.
+  transport-type:
+    type: string
+    description: |
+      Transport protocol for communicating with the storage system or proxy
+      server. Valid options include http and https.
+    default: http
+  netapp-server-port:
+    type: string
+    description: |
+      The TCP port to use for communication with the storage system or proxy
+      server. If not specified, ONTAP drivers will use 80 for HTTP and 443 for HTTPS.
+    default: ''
+  backend-availability-zone:
+    type: string
+    description: |
+      Zone where backend shared server would be created.
+    default: 'nova'
+  root-volume-name:
+    type: string
+    description: |
+      This option specifies name of the root volume that will be created when
+      a new SVM is created to correspond to a Manila share server.
+    default: 'root'
+  aggregate-name-search-pattern:
+    type: string
+    description: |
+      This option specifies a regular expression that is applied against all
+      available aggregates related to the SVM specified in the netapp_vserver
+      option. This filtered list will be reported to the Manila scheduler as
+      valid pools for provisioning new shares.
+    default: '(.*)'
+  standalone-network:
+    type: boolean
+    description: |
+      Standalone Network Plugin Use this plugin in stand-alone deployments of
+      OpenStack Manila
+    default: False
+  standalone-network-network-type:
+    type: string
+    description: |
+      Specify the network type as one of flat or vlan. If unspecified, the
+      driver assumes the network is non-segmented. If using vlan, specify
+      the standalone_network_plugin_segmentation_id option as well.
+    default: flat
+  standalone-network-segmentation-id:
+    type: string
+    description: |
+      Specify the segmentation ID that should be assigned to data LIFs through
+      which shares can be exported. This option is not necessary if the
+      standalone_network_plugin_network_type is set to flat
+    default: ''
+  standalone-network-mtu:
+    type: string
+    description: |
+      Maximum Transmission unit (MTU) value of the network.
+    default: '1500'
+  standalone-network-allowed-ip-ranges:
+    type: string
+    description: |
+      Specify the range of IP addresses that can be used on data LIFs through
+      which shares can be exported. An example of a valid range would be
+      10.0.0.10-10.0.0.254. If this value is not specified, the entire range
+      of IP addresses within the network computed by applying the value of
+      standalone_network_plugin_mask to the value of
+      standalone_network_plugin_gateway. In this case, the broadcast,
+      network, and gateway addresses are automatically excluded.
+    default: ''
+  standalone-network-mask:
+    type: string
+    description: |
+      Specify the subnet mask that should be configured on the data LIF through
+      which the share is exported. You can specify the CIDR suffix (without the
+      slash, e.g. 24) or the full netmask (e.g. 255.255.255.0).
+    default: "24"
+  standalone-network-gateway:
+    type: string
+    description: |
+      Specify the gateway IP address that should be configured on the data
+      LIF through which the share is exported. A Vserver static route is
+      configured using this gateway.
+    default: "172.16.31.1"
