@@ -31,22 +31,22 @@ machines:
 applications:
   manila-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   keystone-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   neutron-api-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   nova-cloud-controller-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   glance-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
   placement-mysql-router:
     charm: ch:mysql-router
-    channel: latest/edge
+    channel: 8.0/edge
 
   mysql-innodb-cluster:
     charm: ch:mysql-innodb-cluster
@@ -57,7 +57,7 @@ applications:
       - '0'
       - '1'
       - '2'
-    channel: latest/edge
+    channel: 8.0/edge
 
   nova-cloud-controller:
     charm: ch:nova-cloud-controller
@@ -67,7 +67,7 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '3'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   glance:
     charm: ch:glance
@@ -76,7 +76,7 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '4'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   neutron-api:
     charm: ch:neutron-api
@@ -89,11 +89,11 @@ applications:
       neutron-security-groups: true
     to:
       - '5'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   neutron-openvswitch:
     charm: ch:neutron-openvswitch
-    channel: latest/edge
+    channel: 2023.2/edge
 
   neutron-gateway:
     charm: ch:neutron-gateway
@@ -103,7 +103,7 @@ applications:
       bridge-mappings: physnet1:br-ex
     to:
       - '6'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   keystone:
     charm: ch:keystone
@@ -112,14 +112,14 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '7'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   rabbitmq-server:
     charm: ch:rabbitmq-server
     num_units: 1
     to:
       - '8'
-    channel: latest/edge
+    channel: 3.9/edge
 
   placement:
     charm: ch:placement
@@ -128,7 +128,7 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '9'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   nova-compute:
     charm: ch:nova-compute
@@ -141,7 +141,7 @@ applications:
     to:
       - '10'
       - '11'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   manila:
     charm: ch:manila
@@ -151,7 +151,7 @@ applications:
       default-share-backend: netapp-ontap
     to:
       - '12'
-    channel: latest/edge
+    channel: 2023.2/edge
 
   manila-netapp:
     charm: ../../manila-netapp.charm
