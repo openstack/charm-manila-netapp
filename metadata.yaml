@@ -17,8 +17,6 @@ tags:
   - file-servers
 series:
   - jammy
-  - lunar
-  - mantic
 subordinate: true
 provides:
   manila-plugin:
