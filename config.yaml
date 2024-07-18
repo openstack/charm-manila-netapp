@@ -131,3 +131,11 @@ options:
       LIF through which the share is exported. A Vserver static route is
       configured using this gateway.
     default: "172.16.31.1"
+  goodness-function:
+    type: string
+    description: |
+      Specify an optional goodness function (as a string) that will be
+      run against the backend to determine its goodness score for scheduling.
+      Please refer to the Manila documentation for the function structure,
+      valid operands and operators.
+    default: ""
